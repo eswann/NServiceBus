@@ -34,7 +34,7 @@ namespace NServiceBus.TimeoutPersisters.NHibernate.Tests
         public void Should_return_the_correct_headers()
         {
             const int numberOfTimeoutsToAdd = 10;
-            Dictionary<string, string> headers = new Dictionary<string, string> { { "Bar", "34234" }, { "Foo", "dasdsa" }, { "Super", "dsfsdf" } };
+            var headers = new Dictionary<string, string> { { "Bar", "34234" }, { "Foo", "dasdsa" }, { "Super", "dsfsdf" } };
 
             for (var i = 0; i < numberOfTimeoutsToAdd; i++)
             {

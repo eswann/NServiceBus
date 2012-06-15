@@ -77,7 +77,7 @@
 
         public void ClearTimeoutsFor(Guid sagaId)
         {
-            using (var session = sessionFactory.OpenSession())
+            using (var session = sessionFactory.OpenStatelessSession())
             using (var tx = session.BeginTransaction(IsolationLevel.ReadCommitted))
             {
                 var queryString = string.Format("delete {0} where SagaId = :sagaid",
