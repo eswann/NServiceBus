@@ -56,7 +56,7 @@ namespace MyServer
             PerformanceTestMessageHandler.receivedMessages = new ConcurrentBag<string>();
             PerformanceTestMessageHandler.NumExpectedMessages = total;
             PerformanceTestMessageHandler.TimeStarted = DateTime.UtcNow;
-            System.Threading.Tasks.Parallel.For(0, total, _ => Bus.Defer(TimeSpan.FromMinutes(20), new PerformanceTestMessage()));
+            System.Threading.Tasks.Parallel.For(0, total, _ => Bus.Defer(TimeSpan.FromMinutes(10), new PerformanceTestMessage()));
         }
 
         void DeferMessage()
