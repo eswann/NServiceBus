@@ -1,4 +1,6 @@
-﻿namespace NServiceBus.TimeoutPersisters.NHibernate.Tests
+﻿using System.Collections.Generic;
+
+namespace NServiceBus.TimeoutPersisters.NHibernate.Tests
 {
     using System;
     using NUnit.Framework;
@@ -10,11 +12,11 @@
         [Test]
         public void Should_remove_timeouts_by_id()
         {
-            var t1 = new TimeoutData();
+            var t1 = new TimeoutData { Time = DateTime.Now.AddYears(1), Headers = new Dictionary<string, string>() { { "Header1", "Value1" } } };
 
             persister.Add(t1);
 
-            var t2 = new TimeoutData();
+            var t2 = new TimeoutData { Time = DateTime.Now.AddYears(1), Headers = new Dictionary<string, string>() { { "Header1", "Value1" } } };
 
             persister.Add(t2);
 
